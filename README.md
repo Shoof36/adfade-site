@@ -24,3 +24,10 @@ name.
 
 Don't rename this repository or move the file: the app reads it at this
 address.
+
+## privacy.html
+
+AdFade's privacy policy. The app's AdFade Pro screen links to it (from build
+14), and App Store Connect's privacy policy field should give this address:
+https://shoof36.github.io/adfade-site/privacy.html. Keep it true to what the
+app does, and put the date at the top when it changes. Don't move it.
