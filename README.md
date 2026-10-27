@@ -9,15 +9,23 @@ The AdFade Break shortcut that the app's **Add the shortcut** button opens
 (iPhone, Music tab, the Music app source):
 
 ```json
-{"link": "https://www.icloud.com/shortcuts/<32 letters and digits>"}
+{"link": "https://www.icloud.com/shortcuts/<32 letters and digits>", "signature": "<base64>"}
 ```
 
 An iCloud shortcut link is a frozen copy of the shortcut: a changed shortcut
 needs a new link (in Shortcuts, the shortcut's Share → Copy iCloud Link).
-Put the new link here and AdFade (build 11 and later) opens it within about
-ten minutes, GitHub Pages' cache time. The app takes only an iCloud shortcut
-link: anything else, or no answer within 3 seconds, and it opens the link it
-was built with.
+Put the new link here, then sign it from the adfade repository:
+
+    /c/flutter/bin/dart tool/sign_shortcut.dart
+
+It signs the link with AdFade's key (Ed25519; the private half is in
+`adfade-files/shortcut-signing-key.txt`, never in a repository) and writes
+the signature beside it. Commit and push, and AdFade opens the new link
+within about ten minutes, GitHub Pages' cache time. From build 17 the app
+takes only an iCloud shortcut link signed with that key, so whoever could
+change this site still couldn't send people to another shortcut; builds 11
+to 16 read the link alone. Anything else, or no answer within 3 seconds,
+and it opens the link it was built with.
 
 The shortcut must keep its name, **AdFade Break**: COMMERCIAL runs it by that
 name.
