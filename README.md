@@ -1,7 +1,20 @@
 # adfade-site
 
-Files the AdFade app reads, served by GitHub Pages at
-https://shoof36.github.io/adfade-site/.
+AdFade's public website: the pages the App Store listing links to (support,
+privacy policy) and one file the app reads (the shortcut's link). Served by
+GitHub Pages at https://shoof36.github.io/adfade-site/. Everything here is
+public the moment it is pushed.
+
+It is its own GitHub repository (Shoof36/adfade-site, public), apart from the
+app's code (the `adfade` folder beside it, private). Keep the two folders
+side by side: the app's signing tool writes `../adfade-site/shortcut.json`.
+
+## support.html
+
+AdFade's support page: the Support URL on the App Store listing
+(https://shoof36.github.io/adfade-site/support.html). Its contact address,
+and the privacy policy's, is the mailbox the developer's other app uses
+(published 2026-11-19). Don't move it: the listing links here.
 
 ## shortcut.json
 
@@ -19,7 +32,8 @@ Put the new link here, then sign it from the adfade repository:
     /c/flutter/bin/dart tool/sign_shortcut.dart
 
 It signs the link with AdFade's key (Ed25519; the private half is in
-`adfade-files/shortcut-signing-key.txt`, never in a repository) and writes
+`App-Store/AdFade Listing/adfade-files/shortcut-signing-key.txt`, never in a
+repository) and writes
 the signature beside it. Commit and push, and AdFade opens the new link
 within about ten minutes, GitHub Pages' cache time. From build 17 the app
 takes only an iCloud shortcut link signed with that key, so whoever could
